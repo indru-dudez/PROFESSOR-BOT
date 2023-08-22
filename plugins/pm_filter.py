@@ -112,7 +112,7 @@ async def pm_spoll_tester(bot, query):
         await k.delete()
 
 
-async def pm_AutoFilter(client, msg, pmspoll=False):    
+async def pm_AutoFilter(client, msg, pmspoll=False):reply_text("Don't request movie on here.You can search movie on here @pcmoviegroup")    
     if not pmspoll:
         message = msg   
         if message.text.startswith("/"): return  # ignore commands
@@ -123,7 +123,6 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:               
                 return await pm_spoll_choker(msg)
-                await message.reply_text("Don't request movie on here.You can search movie on here @pcmoviegroup")
         else:
             return 
     else:
