@@ -122,7 +122,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:               
-                return await pm_spoll_choker(msg)              
+                return await pm_spoll_choker(msg) go to group            
         else:
             return 
     else:
