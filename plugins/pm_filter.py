@@ -112,7 +112,7 @@ async def pm_spoll_tester(bot, query):
         await k.delete()
 
 
-async def pm_AutoFilter(client, msg, pmspoll=False):reply_text("Don't request movie on here.You can search movie on here @pcmoviegroup")    
+async def pm_AutoFilter(client, msg, pmspoll=False):    
     if not pmspoll:
         message = msg   
         if message.text.startswith("/"): return  # ignore commands
