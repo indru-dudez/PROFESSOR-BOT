@@ -14,8 +14,17 @@ from plugins.group_filter import global_filters
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+@Client.on_message(filters.private & filters.text)
+async def reply_to_private_message(client, message):
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Group", url="https://t.me/InFoTelGroup")]])
+    reply_text = (
+        "**Just type the movie name in the group. I can only work in groups\n**"
+        "**\nഇവിടെ ചോദിച്ചാൽ സിനിമ കിട്ടില്ല ഗ്രൂപ്പിൽ മാത്രം സിനിമ ചോദിക്കുക\n**"
+        "**\nask in Group Link and👇**"
+    )
+    await message.reply_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN, reply_markup=reply_markup)
 
-@Client.on_message(filters.private & filters.text & filters.chat(AUTH_USERS) if AUTH_USERS else filters.text & filters.private)
+@Client.on_message(filters.group & filters.text & filters.chat(AUTH_USERS) if AUTH_USERS else filters.text & filters.group)
 async def auto_pm_fill(b, m):
     if PMFILTER:       
         if G_FILTER:
