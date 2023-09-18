@@ -23,8 +23,8 @@ async def reply_to_private_message(client, message):
         "**\nask in Group Link and👇**"
     )
     await message.reply_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN, reply_markup=reply_markup)
-@Client.on_message(filters.group & filters.text & filters.chat(AUTH_USERS) if AUTH_USERS else filters.text & filters.group)
 
+@Client.on_message(filters.group & filters.text & filters.chat(AUTH_USERS) if AUTH_USERS else filters.text & filters.group)
 async def auto_pm_fill(b, m):
     if PMFILTER:       
         if G_FILTER:
