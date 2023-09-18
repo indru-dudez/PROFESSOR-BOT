@@ -16,11 +16,10 @@ logger.setLevel(logging.ERROR)
 
 @Client.on_message(filters.private & filters.text)
 async def reply_to_private_message(client, message):
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Group", url="https://t.me/pcmoviegroup")]])
-    reply_text = (
-        "**Just type the movie name in the group. I can only work in groups\n**"
-        "**\nഇവിടെ ചോദിച്ചാൽ സിനിമ കിട്ടില്ല ഗ്രൂപ്പിൽ മാത്രം സിനിമ ചോദിക്കുക\n**"
-        "**\nask in Group Link and👇**"
+    reply_markup = InlineKeyboardMarkup([["<b>ഇവിടെ ചോദിച്ചാൽ സിനിമ കിട്ടില്ല ഗ്രൂപ്പിൽ മാത്രം സിനിമ ചോദിക്കുക</b>",
+                             reply_markup=InlineKeyboardMarkup(
+                                 [[
+                                     InlineKeyboardButton('🔰 JOIN ❗️C H A N N E L 🔰', url='https://t.me/ARAKAL_THERAVAD_MOVIES')
     )
     await message.reply_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN, reply_markup=reply_markup)
 
