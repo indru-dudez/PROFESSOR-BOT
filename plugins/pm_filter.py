@@ -18,7 +18,6 @@ logger.setLevel(logging.ERROR)
 async def reply_to_private_message(client, message):
     reply_markup = InlineKeyboardMarkup([["<b>ഇവിടെ ചോദിച്ചാൽ സിനിമ കിട്ടില്ല ഗ്രൂപ്പിൽ മാത്രം സിനിമ ചോദിക്കുക</b>",
                              reply_markup=InlineKeyboardMarkup(
-                                 [[
                                      InlineKeyboardButton('🔰 JOIN ❗️C H A N N E L 🔰', url='https://t.me/ARAKAL_THERAVAD_MOVIES')
     )
     await message.reply_text(reply_text, parse_mode=enums.ParseMode.MARKDOWN, reply_markup=reply_markup)
