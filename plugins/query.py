@@ -252,12 +252,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 return await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
             else:
-                await client.send_cached_media(
+                tsk = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if ident == "pmfilep" else False                    
-                )                       
+                )
+                await asyncio.sleep(10)
+                await tsk.delete()
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
         
